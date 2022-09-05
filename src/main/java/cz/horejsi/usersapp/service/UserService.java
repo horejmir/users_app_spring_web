@@ -17,10 +17,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User addUser(User user) {
-        return userRepository.save(user);
-    }
-
     public User findUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Employee with id " + id + " was not found!"));
@@ -30,7 +26,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User updateUser(User user) {
+    public User saveUser(User user) {
         return userRepository.save(user);
     }
 

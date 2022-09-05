@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html layout:decorate="~{fragments/layout}">
+<head>
+    <title>User Form</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" th:object="${user}">
+                <caption>
+                    <h3 th:text="${user.id == null} ? 'Add New User' : 'Edit User'"></h3>
+                    <br />
+                </caption>
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <fieldset class="form-group">
+                    <label>User Name</label> <input type="text" class="form-control" th:field="*{name}">
+                </fieldset>
+                <div th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}"
+                     class="alert alert-warning" role="alert"/>
+
+
+                <fieldset class="form-group">
+                    <label>e-mail</label> <input type="text" class="form-control" th:field="*{email}">
+                </fieldset>
+                <div th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"
+                     class="alert alert-warning" role="alert"/>
+
+                <fieldset class="form-group">
+                    <label>Country</label> <input type="text" class="form-control" th:field="*{country}">
+                </fieldset>
+                <div th:if="${#fields.hasErrors('country')}" th:errorclass="error" th:errors="*{country}"
+                     class="alert alert-warning" role="alert"/>
+
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
