@@ -8,10 +8,8 @@
     <div class="card">
         <div class="card-body">
             <form method="post" th:object="${user}">
-                <caption>
-                    <h3 th:text="${user.id == null} ? 'Add New User' : 'Edit User'"></h3>
-                    <br />
-                </caption>
+                <h3 th:text="${user.id == null} ? 'Add New User' : 'Edit User'"></h3>
+                <br/>
 
                 <input type="hidden" th:field="*{id}"/>
 
